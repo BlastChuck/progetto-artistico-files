@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Demo Database Artistico</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="hero">
+    <div>
+      <span class="eyebrow">Demo database</span>
+      <h1>Dimostrazione interattiva del funzionamento del database</h1>
+      <p>Una demo autonoma che genera dati coerenti e mantiene le modifiche attraverso i ricaricamenti del browser.</p>
+      <div class="hero-actions">
+        <a class="button button--primary" href="#app">Vai alla demo</a>
+        <button id="reset-button" class="button button--secondary">Reimposta dati di prova</button>
+      </div>
+    </div>
+    <div class="hero-panel">
+      <div class="panel-card">
+        <h2>Funzionalità</h2>
+        <ul>
+          <li>Generazione automatica di studenti, opere, prestiti, mostre e feedback</li>
+          <li>Relazioni coerenti tra entità</li>
+          <li>Modifiche salvate automaticamente in <strong>localStorage</strong></li>
+          <li>Interfaccia CRUD semplice e immediata</li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <main id="app" class="section">
+    <section class="summary-card">
+      <div>
+        <p class="section-eyebrow">Stato del database</p>
+        <h2>Database live</h2>
+        <p>Qui ogni modifica resta salvata e viene mostrata subito anche dopo un nuovo caricamento della pagina.</p>
+      </div>
+      <div class="stats-grid" id="stats-grid"></div>
+    </section>
+
+    <nav class="tabs" aria-label="Sezioni dati">
+      <button class="tab-button active" data-section="students">Studenti</button>
+      <button class="tab-button" data-section="artworks">Opere</button>
+      <button class="tab-button" data-section="loans">Prestiti</button>
+      <button class="tab-button" data-section="exhibitions">Mostre</button>
+      <button class="tab-button" data-section="feedback">Feedback</button>
+    </nav>
+
+    <section class="table-panel">
+      <div class="table-header">
+        <div>
+          <h3 id="section-title">Studenti</h3>
+          <p id="section-description">Gestisci gli studenti creatori e i loro dati anagrafici.</p>
+        </div>
+        <button id="add-item" class="button button--primary">Aggiungi record</button>
+      </div>
+      <div class="table-wrapper">
+        <table class="record-table">
+          <thead id="table-head"></thead>
+          <tbody id="table-body"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <div class="modal hidden" id="record-modal" aria-hidden="true">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <div class="modal-header">
+        <h2 id="modal-title">Nuovo record</h2>
+        <button id="close-modal" class="icon-button" aria-label="Chiudi finestra">×</button>
+      </div>
+      <form id="record-form" class="record-form">
+        <div id="form-fields"></div>
+        <div class="modal-actions">
+          <button type="button" class="button button--secondary" id="cancel-button">Annulla</button>
+          <button type="button" class="button button--primary" id="save-button">Salva</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
