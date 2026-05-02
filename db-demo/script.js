@@ -43,6 +43,7 @@ const resetButton = document.getElementById('reset-button');
 const modal = document.getElementById('record-modal');
 const closeModal = document.getElementById('close-modal');
 const saveButton = document.getElementById('save-button');
+const cancelButton = document.getElementById('cancel-button');
 const recordForm = document.getElementById('record-form');
 const formFields = document.getElementById('form-fields');
 const modalTitle = document.getElementById('modal-title');
@@ -253,27 +254,27 @@ function buildForm(editId) {
       formFields.appendChild(label);
     });
   } else if (activeSection === 'artworks') {
-    recordForm.appendChild(createSelect('studentId', 'Autore', data.students, item ? item.studentId : data.students[0]?.id));
-    recordForm.appendChild(createField('Titolo', 'title', item ? item.title : ''));
-    recordForm.appendChild(createSelect('type', 'Tipo', ['Pittura','Scultura','Digital art','Installazione','Multimedia'], item ? item.type : 'Pittura'));
-    recordForm.appendChild(createSelect('status', 'Stato', ['In corso','Completato','In mostra','In prestito'], item ? item.status : 'In corso'));
-    recordForm.appendChild(createField('Valore', 'value', item ? item.value : '600 €'));
+    formFields.appendChild(createSelect('studentId', 'Autore', data.students, item ? item.studentId : data.students[0]?.id));
+    formFields.appendChild(createField('Titolo', 'title', item ? item.title : ''));
+    formFields.appendChild(createSelect('type', 'Tipo', ['Pittura','Scultura','Digital art','Installazione','Multimedia'], item ? item.type : 'Pittura'));
+    formFields.appendChild(createSelect('status', 'Stato', ['In corso','Completato','In mostra','In prestito'], item ? item.status : 'In corso'));
+    formFields.appendChild(createField('Valore', 'value', item ? item.value : '600 €'));
   } else if (activeSection === 'loans') {
-    recordForm.appendChild(createSelect('artworkId', 'Opera', data.artworks, item ? item.artworkId : data.artworks[0]?.id));
-    recordForm.appendChild(createField('Destinazione', 'destination', item ? item.destination : 'Museo Città'));
-    recordForm.appendChild(createField('Corriere', 'courier', item ? item.courier : 'ArteExpress'));
-    recordForm.appendChild(createField('Periodo', 'period', item ? item.period : '05/05/2026 - 10/05/2026'));
-    recordForm.appendChild(createSelect('status', 'Stato', ['In transito','Consegnato','Ritardo'], item ? item.status : 'In transito'));
+    formFields.appendChild(createSelect('artworkId', 'Opera', data.artworks, item ? item.artworkId : data.artworks[0]?.id));
+    formFields.appendChild(createField('Destinazione', 'destination', item ? item.destination : 'Museo Città'));
+    formFields.appendChild(createField('Corriere', 'courier', item ? item.courier : 'ArteExpress'));
+    formFields.appendChild(createField('Periodo', 'period', item ? item.period : '05/05/2026 - 10/05/2026'));
+    formFields.appendChild(createSelect('status', 'Stato', ['In transito','Consegnato','Ritardo'], item ? item.status : 'In transito'));
   } else if (activeSection === 'exhibitions') {
-    recordForm.appendChild(createField('Evento', 'name', item ? item.name : 'Mostra Intensa'));
-    recordForm.appendChild(createField('Location', 'location', item ? item.location : 'Sala Blu'));
-    recordForm.appendChild(createField('Periodo', 'period', item ? item.period : '12/05/2026 - 16/05/2026'));
-    recordForm.appendChild(createSelect('status', 'Stato', ['Programmata','In corso','Conclusa'], item ? item.status : 'Programmata'));
+    formFields.appendChild(createField('Evento', 'name', item ? item.name : 'Mostra Intensa'));
+    formFields.appendChild(createField('Location', 'location', item ? item.location : 'Sala Blu'));
+    formFields.appendChild(createField('Periodo', 'period', item ? item.period : '12/05/2026 - 16/05/2026'));
+    formFields.appendChild(createSelect('status', 'Stato', ['Programmata','In corso','Conclusa'], item ? item.status : 'Programmata'));
   } else if (activeSection === 'feedback') {
-    recordForm.appendChild(createSelect('artworkId', 'Opera', data.artworks, item ? item.artworkId : data.artworks[0]?.id));
-    recordForm.appendChild(createField('Docente', 'teacher', item ? item.teacher : 'Prof. Sala'));
-    recordForm.appendChild(createField('Punteggio', 'score', item ? item.score : '7'));
-    recordForm.appendChild(createSelect('type', 'Tipo', ['Formativo','Ufficiale'], item ? item.type : 'Formativo'));
+    formFields.appendChild(createSelect('artworkId', 'Opera', data.artworks, item ? item.artworkId : data.artworks[0]?.id));
+    formFields.appendChild(createField('Docente', 'teacher', item ? item.teacher : 'Prof. Sala'));
+    formFields.appendChild(createField('Punteggio', 'score', item ? item.score : '7'));
+    formFields.appendChild(createSelect('type', 'Tipo', ['Formativo','Ufficiale'], item ? item.type : 'Formativo'));
   }
 }
 

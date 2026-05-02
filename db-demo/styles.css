@@ -332,6 +332,11 @@ button, .button {
   color: var(--text);
 }
 
+.record-form select option {
+  background: var(--surface-strong);
+  color: var(--text);
+}
+
 .record-form textarea {
   min-height: 100px;
   resize: vertical;

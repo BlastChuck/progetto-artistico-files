@@ -1,0 +1,18 @@
+# Environment
+.venv/
+venv/
+__pycache__/
+
+# Database e file di sistema
+*.db
+*.xlsx
+*.docx
+*.pdf
+Microsoft.Services.Store.winmd
+
+# File ER (diagram files)
+*.er
+
+# OS
+.DS_Store
+Thumbs.db
