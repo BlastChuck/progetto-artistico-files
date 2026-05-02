@@ -38,7 +38,7 @@
     <div class="brief-card">
       <p class="section__eyebrow">Consegna</p>
       <h2>Le richieste più importanti e difficili da gestire</h2>
-      <p class="lead">Il progetto deve gestire contemporaneamente: l’identità degli studenti, la complessità delle opere, la collaborazione in team, i materiali tossici, le posizioni espositive, i prestiti assicurati, le mostre e le valutazioni docenti differenziate.</p>
+      <p class=\"lead\">Gestione: studenti, opere, team collaborativi, materiali, prestiti, spazi, mostre e feedback docenti.</p>
       <ul class="brief-list">
         <li><strong>Tracciamento studenti e creatori</strong>: matricola, codice fiscale, classe, anno di immatricolazione e media.</li>
         <li><strong>Opere con versioni fisiche e digitali</strong>: stato, valore, conservazione e contributi di ogni partecipante.</li>
@@ -57,11 +57,11 @@
       <div class="grid grid--2">
         <div class="card card--glow">
           <h3>Studenti creatori</h3>
-          <p>Gestione dei creatori identificati da codice fiscale e matricola univoca. Ogni studente conserva nome, cognome, data di nascita, classe, sezione, indirizzo di studi, anno di immatricolazione, contatti e media voti.</p>
+          <p>Codice fiscale, matricola, classe, media e contatti identificano univocamente ogni studente.</p>
         </div>
-        <div class="card card--glow">
-          <h3>Opere e collaborazioni</h3>
-          <p>Le opere possono essere singole o realizzate da team. Per ogni partecipante viene memorizzato ruolo e percentuale di contributo, così da tracciare i progetti collettivi in modo dettagliato.</p>
+        <div class=\"card card--glow\">
+          <h3>Opere e team</h3>
+          <p>Singole o collaborative. Ogni partecipante ha ruolo e percentuale di contributo definiti.</p>
         </div>
       </div>
     </section>
@@ -110,20 +110,41 @@
     <section id="process" class="section section--workflow">
       <div class="section__header">
         <p class="section__eyebrow">Processo</p>
-        <h2>Ogni passaggio del lavoro</h2>
+        <h2>Fasi di sviluppo</h2>
       </div>
       <div class="grid grid--3">
         <article class="process-card">
-          <h3>1. Suddivisione dei lavori</h3>
-          <p>Abbiamo definito ruoli, responsabilità e livellato i compiti tra analisi, modellazione e sviluppo.</p>
+          <h3>1. Analisi</h3>
+          <p>Definizione dei ruoli e delle responsabilità del team.</p>
         </article>
         <article class="process-card">
-          <h3>2. Screen dei processi</h3>
-          <p>Ogni fase è rappresentata con i modelli ER, logico e fisico per mostrare l'evoluzione del progetto.</p>
+          <h3>2. Modellazione</h3>
+          <p>Creazione dei modelli ER, logico e fisico con iterazioni.</p>
         </article>
         <article class="process-card">
-          <h3>3. Errori riscontrati</h3>
-          <p>Documentiamo errori di progettazione: entità ridondanti, generalizzazioni errate, vincoli sbagliati e problemi di database.</p>
+          <h3>3. Implementazione</h3>
+          <p>Database e siti di presentazione e demo.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="errors" class="section section--errors">
+      <div class="section__header">
+        <p class="section__eyebrow">Iterazioni e correzioni</p>
+        <h2>Errori riscontrati</h2>
+      </div>
+      <div class="grid grid--3">
+        <article class="feature-card">
+          <h3>Errore 1: Modello troppo semplice</h3>
+          <p>Necessario aumentare entità e associazioni per coprire tutti i requisiti funzionali.</p>
+        </article>
+        <article class="feature-card">
+          <h3>Errore 2: Generalizzazione errata</h3>
+          <p>Corretta la gerarchia dell'entità opera (fisica vs. digitale) con specializzazione disgiunta.</p>
+        </article>
+        <article class="feature-card">
+          <h3>Errore 3: Entità e cardinalità</h3>
+          <p>Eliminate entità ridondanti e corretti i vincoli di cardinalità tra associazioni.</p>
         </article>
       </div>
     </section>
@@ -164,7 +185,7 @@
         </figure>
         <figure class="media-figure media-figure--3">
           <div class="media-badge">03</div>
-          <a class="media-link" href="#" target="_blank" rel="noreferrer">
+          <a class="media-link" href="Modello_logico_artistico.docx" download="Modello_logico_artistico.docx">
             <div class="media-logical">
               <h4>📊 Modello Logico</h4>
               <pre>STUDENTE(c_f, matricola, nome, cognome,
@@ -183,7 +204,7 @@ categoria, tossicita)</pre>
             <p>Schema relazionale con vincoli di integrità.</p>
           </figcaption>
           <div class="media-actions">
-            <a class="button button--primary" href="Modello_logico_artistico.docx" download="Modello_logico_artistico.docx">Documenti completo</a>
+            <a class="button button--primary" href="Modello_logico_artistico.docx" download="Modello_logico_artistico.docx">Documento completo</a>
           </div>
         </figure>
         <figure class="media-figure media-figure--4">
