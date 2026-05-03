@@ -253,6 +253,15 @@ button, .button {
   color: var(--text-muted);
 }
 
+.section--errors .errors-grid {
+  align-items: stretch;
+}
+
+.section--errors .feature-card {
+  height: 100%;
+  background: linear-gradient(180deg, rgba(255,255,255,0.045), rgba(93,140,255,0.08));
+}
+
 .media-grid {
   display: grid;
   gap: 2rem;

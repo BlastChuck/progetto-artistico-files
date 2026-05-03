@@ -3,73 +3,85 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Demo Database Artistico</title>
+  <title>Archivio Database Artistico</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header class="hero">
-    <div>
-      <span class="eyebrow">Demo database</span>
-      <h1>Dimostrazione interattiva del funzionamento del database</h1>
-      <p>Una demo autonoma che genera dati coerenti e mantiene le modifiche attraverso i ricaricamenti del browser.</p>
-      <div class="hero-actions">
-        <a class="button button--primary" href="#app">Vai alla demo</a>
-        <button id="reset-button" class="button button--secondary">Reimposta dati di prova</button>
+  <header class="header">
+    <div class="header-content">
+      <div class="header-title">
+        <h1>📚 Norbi Archive</h1>
+        <p>Visualizza e gestisci tutti i dati del patrimonio in un'unica interfaccia</p>
       </div>
-    </div>
-    <div class="hero-panel">
-      <div class="panel-card">
-        <h2>Funzionalità</h2>
-        <ul>
-          <li>Generazione automatica di studenti, opere, prestiti, mostre e feedback</li>
-          <li>Relazioni coerenti tra entità</li>
-          <li>Modifiche salvate automaticamente in <strong>localStorage</strong></li>
-          <li>Interfaccia CRUD semplice e immediata</li>
-        </ul>
-      </div>
+      <button id="reset-button" class="button button--secondary">Reimposta dati</button>
     </div>
   </header>
 
-  <main id="app" class="section">
-    <section class="summary-card">
-      <div>
-        <p class="section-eyebrow">Stato del database</p>
-        <h2>Database live</h2>
-        <p>Qui ogni modifica resta salvata e viene mostrata subito anche dopo un nuovo caricamento della pagina.</p>
+  <main class="container">
+    <!-- Breadcrumb di navigazione -->
+    <nav class="breadcrumb" id="breadcrumb"></nav>
+
+    <!-- Barra di ricerca e filtri -->
+    <div class="search-panel">
+      <div class="search-box">
+        <input 
+          type="text" 
+          id="search-input" 
+          placeholder="Cerca studenti, opere, prestiti, mostre, feedback..." 
+          class="search-input"
+        />
+        <button id="search-btn" class="button button--primary">Cerca</button>
       </div>
-      <div class="stats-grid" id="stats-grid"></div>
-    </section>
+      
+      <div class="filters">
+        <select id="filter-type" class="filter-select">
+          <option value="">Tutti i tipi</option>
+          <option value="students">Studenti</option>
+          <option value="artworks">Opere</option>
+          <option value="loans">Prestiti</option>
+          <option value="exhibitions">Mostre</option>
+          <option value="feedback">Feedback</option>
+        </select>
+      </div>
+    </div>
 
-    <nav class="tabs" aria-label="Sezioni dati">
-      <button class="tab-button active" data-section="students">Studenti</button>
-      <button class="tab-button" data-section="artworks">Opere</button>
-      <button class="tab-button" data-section="loans">Prestiti</button>
-      <button class="tab-button" data-section="exhibitions">Mostre</button>
-      <button class="tab-button" data-section="feedback">Feedback</button>
-    </nav>
+    <!-- Pulsanti categorie -->
+    <div class="category-buttons">
+      <button class="category-btn active" data-category="">Tutto</button>
+      <button class="category-btn" data-category="students">👤 Studenti</button>
+      <button class="category-btn" data-category="artworks">🎨 Opere</button>
+      <button class="category-btn" data-category="loans">📦 Prestiti</button>
+      <button class="category-btn" data-category="exhibitions">🎭 Mostre</button>
+      <button class="category-btn" data-category="feedback">⭐ Feedback</button>
+    </div>
 
-    <section class="table-panel">
-      <div class="table-header">
-        <div>
-          <h3 id="section-title">Studenti</h3>
-          <p id="section-description">Gestisci gli studenti creatori e i loro dati anagrafici.</p>
+    <!-- Statistiche rapide -->
+    <div class="stats-bar" id="stats-bar"></div>
+
+    <!-- Area principale con vista split -->
+    <div class="main-area">
+      <!-- Pannello sinistro: lista risultati / dati principali -->
+      <section class="left-panel">
+        <div class="panel-header">
+          <h2 id="panel-title">Archivio</h2>
+          <button id="add-item-btn" class="button button--primary">+ Aggiungi</button>
         </div>
-        <button id="add-item" class="button button--primary">Aggiungi record</button>
-      </div>
-      <div class="table-wrapper">
-        <table class="record-table">
-          <thead id="table-head"></thead>
-          <tbody id="table-body"></tbody>
-        </table>
-      </div>
-    </section>
+        <div class="items-list" id="items-list"></div>
+      </section>
+
+      <!-- Pannello destro: dettagli e relazioni -->
+      <section class="right-panel">
+        <div id="details-panel" class="details-panel"></div>
+      </section>
+    </div>
   </main>
 
+  <!-- Modal per form CRUD -->
   <div class="modal hidden" id="record-modal" aria-hidden="true">
-    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-card" role="dialog" aria-modal="true">
       <div class="modal-header">
         <h2 id="modal-title">Nuovo record</h2>
-        <button id="close-modal" class="icon-button" aria-label="Chiudi finestra">×</button>
+        <button id="close-modal" class="icon-button" aria-label="Chiudi">×</button>
       </div>
       <form id="record-form" class="record-form">
         <div id="form-fields"></div>

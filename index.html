@@ -128,34 +128,31 @@
       </div>
     </section>
 
-    <section id="demo" class="section section--demo">
-      <div class="section__header">
-        <p class="section__eyebrow">Prova interattiva</p>
-        <h2>Demo del database</h2>
-      </div>
-      <p class="section__copy"></p>
-      <div class="cta-row">
-        <a class="button button--primary" href="db-demo/index.html">Accedi alla demo</a>
-      </div>
-    </section>
-
     <section id="errors" class="section section--errors">
       <div class="section__header">
         <p class="section__eyebrow">Iterazioni e correzioni</p>
         <h2>Errori riscontrati</h2>
       </div>
-      <div class="grid grid--3">
+      <div class="grid grid--2 errors-grid">
         <article class="feature-card">
-          <h3>Errore 1: Modello troppo semplice</h3>
-          <p>Necessario aumentare entità e associazioni per coprire tutti i requisiti funzionali.</p>
+          <h3>Errori Modello ER e Ristrutturazione</h3>
+          <ul class="brief-list">
+            <li><strong>Modello iniziale troppo semplice</strong>: mancavano entità e associazioni per coprire tutti i requisiti.</li>
+            <li><strong>Generalizzazione errata dell'opera</strong>: corretta la specializzazione fisica/digitale in forma disgiunta.</li>
+            <li><strong>Entità ridondanti e cardinalità incoerenti</strong>: semplificate le tabelle e riallineati i vincoli tra relazioni.</li>
+          </ul>
         </article>
         <article class="feature-card">
-          <h3>Errore 2: Generalizzazione errata</h3>
-          <p>Corretta la gerarchia dell'entità opera (fisica vs. digitale) con specializzazione disgiunta.</p>
-        </article>
-        <article class="feature-card">
-          <h3>Errore 3: Entità e cardinalità</h3>
-          <p>Eliminate entità ridondanti e corretti i vincoli di cardinalità tra associazioni.</p>
+          <h3>Errori Demo DB</h3>
+          <ul class="brief-list">
+            <li><strong>Counter sotto i bottoni</strong>: mostrati in modo poco utile/confusivo nella demo.</li>
+            <li><strong>Categoria Opere vuota</strong>: in elenco non si vedevano opere, ma nel form feedback risultavano presenti.</li>
+            <li><strong>Click su opera correlata da studente</strong>: il dettaglio opera non si apriva correttamente.</li>
+            <li><strong>Nuova opera non associata allo studente</strong>: il salvataggio usava il tipo record sbagliato.</li>
+            <li><strong>Feedback non salvato/associato</strong>: inserimento non persistito sulla relazione opera-feedback.</li>
+            <li><strong>Mostre e prestiti contati come opere</strong>: alcuni record finivano nella collezione errata.</li>
+            <li><strong>Relazione opera-mostra non visibile</strong>: non era chiaro se un'opera fosse in mostra e in quale evento.</li>
+          </ul>
         </article>
       </div>
     </section>
@@ -232,6 +229,17 @@ categoria, tossicita)</pre>
             <a class="button button--primary" href="assets/ER_artistico_ristrutturato_con_tabelle_t.jpg" target="_blank" rel="noreferrer">Visualizza</a>
           </div>
         </figure>
+      </div>
+    </section>
+
+    <section id="demo" class="section section--demo">
+      <div class="section__header">
+        <p class="section__eyebrow">Prova interattiva</p>
+        <h2>Demo del database</h2>
+      </div>
+      <p class="section__copy"></p>
+      <div class="cta-row">
+        <a class="button button--primary" href="db-demo/index.html">Accedi alla demo</a>
       </div>
     </section>
 
